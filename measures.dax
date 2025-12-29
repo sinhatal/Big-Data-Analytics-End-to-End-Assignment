@@ -1,0 +1,27 @@
+-- Core KPI measures (copy into Power BI)
+
+Total Titles = COUNTROWS(FactTitles)
+
+Movies = CALCULATE([Total Titles], FactTitles[type] = "Movie")
+TV Shows = CALCULATE([Total Titles], FactTitles[type] = "TV Show")
+
+% Movies = DIVIDE([Movies], [Total Titles])
+% TV Shows = DIVIDE([TV Shows], [Total Titles])
+
+Unique Countries =
+DISTINCTCOUNT(BridgeCountries[country])
+
+Unique Genres =
+DISTINCTCOUNT(BridgeGenres[genre])
+
+Avg Movie Minutes =
+AVERAGEX(
+    FILTER(FactTitles, FactTitles[type]="Movie" && NOT(ISBLANK(FactTitles[duration_minutes]))),
+    FactTitles[duration_minutes]
+)
+
+Avg TV Seasons =
+AVERAGEX(
+    FILTER(FactTitles, FactTitles[type]="TV Show" && NOT(ISBLANK(FactTitles[duration_seasons]))),
+    FactTitles[duration_seasons]
+)

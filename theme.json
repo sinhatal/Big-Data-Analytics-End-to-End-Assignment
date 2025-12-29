@@ -1,0 +1,13 @@
+{
+  "name": "Netflix Analytics Theme",
+  "dataColors": [
+    "#E50914",
+    "#221F1F",
+    "#F5F5F1",
+    "#B81D24",
+    "#FFFFFF"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#221F1F",
+  "tableAccent": "#E50914"
+}
